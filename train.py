@@ -78,7 +78,7 @@ def main():
         trg_in_trg = trg_img
         print('src_in_trg.shape', src_in_trg.shape)
         print('mean_img.shape', mean_img.shape)
-        print(src_lbl)
+        print(src_lbl.shape)
 
         # 2. subtract mean
         src_img = src_in_trg.clone() - mean_img                                 # src, src_lbl
