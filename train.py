@@ -78,7 +78,6 @@ def main():
         trg_in_trg = trg_img
         print('src_in_trg.shape', src_in_trg.shape)
         print('mean_img.shape', mean_img.shape)
-        print(src_lbl.shape)
 
         # 2. subtract mean
         src_img = src_in_trg.clone() - mean_img                                 # src, src_lbl
@@ -88,6 +87,8 @@ def main():
 
         # evaluate and update params #####
         src_img, src_lbl = Variable(src_img).cuda(), Variable(src_lbl.long()).cuda() # to gpu
+        print('src_img.shape', src_img.shape)
+        print('src_lbl.shape', src_lbl.shape)
         src_seg_score = model(src_img, lbl=src_lbl, weight=class_weights, ita=args.ita)      # forward pass
         loss_seg_src = model.loss_seg                                                # get loss
         loss_ent_src = model.loss_ent
