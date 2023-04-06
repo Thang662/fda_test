@@ -57,7 +57,7 @@ def FDA_source_to_target(src_img, trg_img, L=0.1):
 
     # get the recomposed image: source content, target style
     _, _, imgH, imgW = src_img.size()
-    src_in_trg = torch.view_as_complex(torch.fft.irfft( fft_src_.shape[1], dim=2 ))
+    src_in_trg = torch.fft.irfft( torch.view_as_complex(fft_src_), n = fft_src_.shape[1], dim=2 )
 
     return src_in_trg
 
