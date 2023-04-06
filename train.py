@@ -63,7 +63,7 @@ def main():
         optimizer.zero_grad()                                                        # zero grad
 
         src_img, src_lbl, _, _ = next(sourceloader_iter)                            # new batch source
-        trg_img, trg_lbl, _, _ = nexts(targetloader_iter)                            # new batch target
+        trg_img, trg_lbl, _, _ = next(targetloader_iter)                            # new batch target
 
         scr_img_copy = src_img.clone()
 
