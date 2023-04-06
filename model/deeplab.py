@@ -177,6 +177,8 @@ class ResNet101(nn.Module):
             self.loss_ent = ent.mean()
 
             x = nn.functional.interpolate(x, size=(h, w), mode='bilinear', align_corners=True)
+            print(x.size())
+            print(lbl.size())
             if lbl is not None:
                 self.loss_seg = self.CrossEntropy2d(x, lbl, weight=weight)
 
