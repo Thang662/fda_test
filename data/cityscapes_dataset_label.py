@@ -30,7 +30,7 @@ class cityscapesDataSetLabel(data.Dataset):
     def __getitem__(self, index):
         name = self.img_ids[index]   # aachen/aachen_000000_000019_leftImg8bit.png
         image = Image.open(osp.join(   self.root, "leftImg8bit/%s/%s" % (self.set, name)   )).convert('RGB')
-        lbname = name.replace("leftImg8bit", "gtFine_color")
+        lbname = name.replace("leftImg8bit", "gtFine_labelIds")
         label = Image.open(osp.join(   self.root, "gtFine_trainvaltest/gtFine/%s/%s" % (self.set, lbname)   ))
 
         # resize
