@@ -64,8 +64,6 @@ def main():
 
         src_img, src_lbl, _, _ = next(sourceloader_iter)                            # new batch source
         trg_img, trg_lbl, _, _ = next(targetloader_iter)                            # new batch target
-        print('trg_img.shape', trg_img.shape)
-        print('trg_lbl.shape', trg_lbl.shape)
         scr_img_copy = src_img.clone()
 
         if mean_img.shape[-1] < 2:
