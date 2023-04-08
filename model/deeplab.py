@@ -241,7 +241,7 @@ class ResNet101(nn.Module):
         print(target)
 
         loss = F.cross_entropy(predict, target, weight=weight, reduction='mean')
-
+        print(loss)
         return loss    
 
 def Deeplab(num_classes=21, init_weights=None, restore_from=None, phase='train'):
