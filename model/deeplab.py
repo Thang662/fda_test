@@ -235,6 +235,10 @@ class ResNet101(nn.Module):
             return Variable(torch.zeros(1))
         predict = predict.transpose(1, 2).transpose(2, 3).contiguous()
         predict = predict[target_mask.view(n, h, w, 1).repeat(1, 1, 1, c)].view(-1, c)
+        print(predict.size(), target.size())
+        print(predict)
+        print('------------------')
+        print(target)
 
         loss = F.cross_entropy(predict, target, weight=weight, reduction='mean')
 
